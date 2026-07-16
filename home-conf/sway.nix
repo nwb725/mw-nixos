@@ -1,5 +1,8 @@
 { pkgs, lib, config, ... }:
 {
+  imports = [
+    ./i3status-rust.nix
+  ];
   config = lib.mkIf config.enableSway {
     wayland.windowManager.sway = {
       enable = true;
@@ -118,7 +121,7 @@
 
         bars = [{
           position = "top";
-          statusCommand = "i3status-rs";
+          statusCommand = "i3status-rs ${config.xdg.configHome}/i3status-rust/config-top.toml";
           colors = {
             statusline = "#ffffff";
             background = "#323232";
@@ -163,7 +166,6 @@
     };
 
   home.packages = with pkgs; [
-    i3status-rust
     swaybg
     wofi
     grim
