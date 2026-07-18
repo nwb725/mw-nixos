@@ -97,10 +97,10 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # programs.sway = {
-    # enable = true;
-    # wrapperFeatures.gtk = true;
-  # };
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
 
   # Configure keymap in X11
