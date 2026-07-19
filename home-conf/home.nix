@@ -5,6 +5,7 @@
     ./helix.nix
     ./sway.nix
     ./kitty.nix
+    ./fish/fish.nix
   ];
   
   home.username = "mw";
@@ -27,10 +28,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # helix
 	  zellij
 	  wget
-	  fish
 
 	  nerd-fonts.jetbrains-mono
     font-awesome
