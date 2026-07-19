@@ -6,6 +6,7 @@
     ./sway.nix
     ./kitty.nix
     ./fish/fish.nix
+    ./zellij.nix
   ];
   
   home.username = "mw";
@@ -23,14 +24,10 @@
     layout = "dk-latin1";
   };
 
-  programs.discord.enable = true;
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-	  zellij
 	  wget
-
 	  nerd-fonts.jetbrains-mono
     font-awesome
   ] ++ lib.optionals config.isWork [ b4 ];

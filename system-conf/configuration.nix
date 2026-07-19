@@ -101,7 +101,8 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
-
+  
+  programs.discord.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
