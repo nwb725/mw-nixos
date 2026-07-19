@@ -4,6 +4,7 @@
   imports = [
     ./helix.nix
     ./sway.nix
+    ./kitty.nix
   ];
   
   home.username = "mw";
@@ -29,7 +30,6 @@
     # helix
 	  zellij
 	  wget
-	  kitty
 	  fish
 
 	  nerd-fonts.jetbrains-mono
