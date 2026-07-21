@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      # ./hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -102,8 +102,6 @@
     wrapperFeatures.gtk = true;
   };
   
-  programs.discord.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "dk";
@@ -117,7 +115,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [ discord ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

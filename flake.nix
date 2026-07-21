@@ -20,15 +20,27 @@
       system = "x86_64-linux";
     in
     {
-      nixosConfigurations."mw" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./system-conf/configuration.nix
-        ];
+      nixosConfigurations = {
+        "home" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./configuration.nix
+            ./hosts/hardware-home.nix
+          ]; 
+        };
+        "work" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./configuration.nix
+            ./hosts/hardware-work.nix
+          ]; 
+        };
+        
       };
       homeConfigurations = {
-        "mw" = home-manager.lib.homeManagerConfiguration {
+        "home" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
@@ -39,7 +51,7 @@
             { enableSway = true; }
           ];
         };
-        "mwWork" = home-manager.lib.homeManagerConfiguration {
+        "work" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
@@ -53,7 +65,7 @@
             }
           ];
         };
-        "mwDeploy" = home-manager.lib.homeManagerConfiguration {
+        "deploy" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;

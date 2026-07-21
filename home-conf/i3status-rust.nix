@@ -13,7 +13,7 @@
          }
          {
            block = "net";
-           format = " $icon {$signal_strength $ssid} ";
+           format = " $icon {$signal_strength $ssid|} ";
          }
          {
            block = "time";

@@ -30,7 +30,7 @@
 	  wget
 	  nerd-fonts.jetbrains-mono
     font-awesome
-  ] ++ lib.optionals config.isWork [ b4 ];
+  ] ++ lib.optionals config.isWork [ b4 wdisplays ];
   
   fonts.fontconfig.enable = true;
 
