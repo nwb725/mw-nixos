@@ -69,6 +69,7 @@
   };
 
   home.packages = with pkgs; [
+    rust-analyzer
     nixfmt
     nil
   ];
