@@ -29,7 +29,7 @@
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
   };
 
   services.blueman.enable = true;
@@ -107,9 +107,7 @@
     layout = "dk";
     variant = "";
   };
-   
-  programs.direnv.enable = true;
-  
+     
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
