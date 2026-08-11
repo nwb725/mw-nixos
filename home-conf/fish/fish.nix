@@ -1,13 +1,13 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 {
   programs.fish = {
     enable = true;
 
-    interactiveShellInit = ''
+    interactiveShellInit = if !config.isDeploy then ''
       if status is-interactive; and type -q zellij; and not set -q ZELLIJ
         zellij
       end
-    '';
+    '' else "";
     
     functions = {
       "fish_greeting" = {
